@@ -5,7 +5,7 @@
                   class="path"></path>
         </svg>
 
-        <div src="../../image/shortharigirl.png" class="ball" @mouseenter="over()" @mouseleave="leave()" ref="ball"></div>
+        <div class="ball" @mouseenter="over()" @mouseleave="leave()" ref="ball"></div>
     </div>
 </template>
 
@@ -41,14 +41,13 @@ svg
     display: block;
 
 .ball
-    position relative
-    width: 64px;
-    height: 64px;
-    background-image: url("../../image/redbag.png")
-    background-repeat: no-repeat
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
     offset-path: path('M10 80 Q 77.5 10, 145 80 T 280 80');
     offset-distance: 0%;
-    animation: red-ball 2s linear  infinite;
+    animation: red-ball 2s linear alternate infinite;
 
 
 @keyframes red-ball {
