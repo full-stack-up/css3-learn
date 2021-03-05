@@ -10,6 +10,10 @@ export default {
     name: 'Show',
     components: {
         FlowChart
+    },mounted() {
+        // this.$eventHub.$on('bottom-to-top',()=>{
+        //    alert("李健最牛")
+        // });
     }
 }
 </script>

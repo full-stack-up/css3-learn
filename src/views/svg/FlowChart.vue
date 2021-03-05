@@ -63,15 +63,46 @@ export default {
     name: 'FlowChart',
     components: {},
     mounted() {
+        this.listening();
+        this.$eventHub.$on('bottom-to-top',()=>{
+        });
+    },
+    data(){
+      return{
+
+      }
     },
     methods: {
         over() {
             const icon1 = this.$refs.icon1
             icon1.className = 'icon1 paused';
-            console.log(icon1)
 
             const icon2 = this.$refs.icon2
             icon2.className = 'icon2 paused';
+
+            const icon3 = this.$refs.icon3
+            icon3.className = 'icon3 paused';
+
+            const icon4 = this.$refs.icon4
+            icon4.className = 'icon4 paused';
+
+            const icon5 = this.$refs.icon5
+            icon5.className = 'icon5 paused';
+
+            const icon6 = this.$refs.icon6
+            icon6.className = 'icon6 paused';
+
+            const icon7 = this.$refs.icon7
+            icon7.className = 'icon7 paused';
+
+            const icon8 = this.$refs.icon8
+            icon8.className = 'icon8 paused';
+
+            const icon9 = this.$refs.icon9
+            icon9.className = 'icon9 paused';
+
+            const icon10 = this.$refs.icon10
+            icon10.className = 'icon10 paused';
 
         },
         leave() {
@@ -80,6 +111,53 @@ export default {
 
             const icon2 = this.$refs.icon2
             icon2.className = 'icon2 active';
+
+            const icon3 = this.$refs.icon3
+            icon3.className = 'icon3 active';
+
+
+            const icon4 = this.$refs.icon4
+            icon4.className = 'icon4 active';
+
+
+            const icon5 = this.$refs.icon5
+            icon5.className = 'icon5 active';
+
+
+            const icon6 = this.$refs.icon6
+            icon6.className = 'icon6 active';
+
+
+            const icon7 = this.$refs.icon7
+            icon7.className = 'icon7 active';
+
+
+            const icon8 = this.$refs.icon8
+            icon8.className = 'icon8 active';
+
+
+            const icon9 = this.$refs.icon9
+            icon9.className = 'icon9 active';
+
+
+            const icon10 = this.$refs.icon10
+            icon10.className = 'icon10 active';
+
+        },
+        listening(){
+            this.$refs.icon6.addEventListener('animationend',()=>{
+                console.log('icon6 finished animating!');
+                this.$refs.icon6.style.display = 'none'
+                this.$eventHub.$emit("bottom-to-top");
+            });
+            this.$refs.icon8.addEventListener('animationend',()=>{
+                console.log('icon8 finished animating!');
+                this.$refs.icon8.style.display = 'none'
+            });
+            this.$refs.icon10.addEventListener('animationend',()=>{
+                console.log('icon10 finished animating!');
+                this.$refs.icon10.style.display = 'none'
+            });
         }
 
     }
@@ -87,8 +165,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
-
 
 .home
     position absolute
@@ -161,6 +237,7 @@ export default {
     display block
     position: absolute;
 .icon1
+    display none
     position absolute
     left 140px
     top 110px
@@ -170,8 +247,9 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M0 40 L0 123');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    animation: run-line 6s linear infinite;
 .icon2
+    display none
     position absolute
     left 160px;
     top 110px;
@@ -181,8 +259,9 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M0 122 L0 40');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    animation: run-line 6s linear 1;
 .icon3
+    display none
     position absolute
     right 135px;
     top 110px;
@@ -192,9 +271,10 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M0 40 L0 123');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    animation: run-line 6s linear infinite;
 
 .icon4
+    display none
     position absolute
     right 115px;
     top 110px;
@@ -204,9 +284,10 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M0 122 L0 40');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    animation: run-line 6s linear infinite;
 
 .icon5
+    display none
     position absolute
     width: 24px;
     height: 24px;
@@ -214,7 +295,7 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M240 340 L140 460');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    //animation: run-line 8s linear infinite;
 
 
 .icon6
@@ -225,10 +306,11 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M160 460 L260 340');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    animation: run-line 4s linear 1;
 
 
 .icon7
+    display none
     position absolute
     left 290px;
     top 310px;
@@ -238,7 +320,7 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M0 40 L0 144');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    //animation: run-line 8s linear infinite;
 
 .icon8
     position absolute
@@ -250,15 +332,10 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M0 144 L0 40');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
-
-//<line id="line-9" x1="350" y1="340" x2="420" y2="460"
-//style="stroke:rgb(255,0,0);stroke-width:2"/>
-//
-//<line id="line-10" x1="370" y1="340" x2="440" y2="460"
-//style="stroke:rgb(255,0,0);stroke-width:2"/>
+    animation: run-line 4s linear 1;
 
 .icon9
+    display none
     position absolute
     width: 24px;
     height: 24px;
@@ -266,7 +343,7 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M350 340 L420 460');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    //animation: run-line 8s linear infinite;
 
 
 .icon10
@@ -277,7 +354,7 @@ export default {
     background-repeat: no-repeat
     offset-path: path('M440 460 L370 340');
     offset-distance: 0%;
-    animation: run-line 4s linear infinite;
+    animation: run-line 4s linear 1;
 
 .active
     animation-play-state: running;
