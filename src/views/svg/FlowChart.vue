@@ -10,16 +10,16 @@
         <div class="middle-bottom"></div>
         <div class="right-bottom"></div>
         <svg class="column-line" width="600px" height="600px" version="1.1">
-            <line id="line-1" x1="140" y1="140" x2="140" y2="300"
+            <line id="line-1" x1="140" y1="140" x2="140" y2="240"
                   style="stroke:rgb(255,0,0);stroke-width:2" @mouseenter="over()" @mouseleave="leave()"/>
 
-            <line id="line-2" x1="160" y1="140" x2="160" y2="300"
+            <line id="line-2" x1="160" y1="140" x2="160" y2="240"
                   style="stroke:rgb(255,0,0);stroke-width:2"/>
 
-            <line id="line-3" x1="440" y1="140" x2="440" y2="300"
+            <line id="line-3" x1="440" y1="140" x2="440" y2="240"
                   style="stroke:rgb(255,0,0);stroke-width:2"/>
 
-            <line id="line-4" x1="460" y1="140" x2="460" y2="300"
+            <line id="line-4" x1="460" y1="140" x2="460" y2="240"
                   style="stroke:rgb(255,0,0);stroke-width:2"/>
 
             <!-- 分割线    -->
@@ -68,6 +68,7 @@ export default {
         over() {
             const icon1 = this.$refs.icon1
             icon1.className = 'icon1 paused';
+            console.log(icon1)
 
             const icon2 = this.$refs.icon2
             icon2.className = 'icon2 paused';
@@ -87,11 +88,7 @@ export default {
 
 <style lang="stylus" scoped>
 
-@keyframes run-line
-    from
-        offset-distance: 0%;
-    to
-        offset-distance: 100%;
+
 
 .home
     position absolute
@@ -101,37 +98,6 @@ export default {
     height 600px
     margin 0 auto
     background-color greenyellow
-
-
-    .icon1
-        position absolute
-        left 130px;
-        top 110px;
-        width: 24px;
-        height: 24px;
-        background-image: url("../../image/flower.png")
-        background-repeat: no-repeat
-        offset-path: path('M0 40 L0 132');
-        offset-distance: 0%;
-        animation: run-line 2s linear infinite;
-
-    .icon2
-        position absolute
-        left 180px;
-        top 110px;
-        width: 24px;
-        height: 24px;
-        background-image: url("../../image/flower.png")
-        background-repeat: no-repeat
-        offset-path: path('M0 132 L0 40');
-        offset-distance: 0%;
-        animation: run-line 2s linear infinite;
-
-    .active
-        animation-play-state: running;
-
-    .paused
-        animation-play-state: paused;
 
     .left-top
         position absolute
@@ -183,6 +149,135 @@ export default {
         width 100px
         height 40px
         background-color aqua
+
+
+@keyframes run-line
+    from
+        offset-distance: 0%;
+    to
+        offset-distance: 100%;
+
+.column-line
+    display block
+    position: absolute;
+.icon1
+    position absolute
+    left 140px
+    top 110px
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M0 40 L0 123');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+.icon2
+    position absolute
+    left 160px;
+    top 110px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M0 122 L0 40');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+.icon3
+    position absolute
+    right 135px;
+    top 110px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M0 40 L0 123');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+
+.icon4
+    position absolute
+    right 115px;
+    top 110px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M0 122 L0 40');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+
+.icon5
+    position absolute
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M240 340 L140 460');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+
+
+.icon6
+    position absolute
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M160 460 L260 340');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+
+
+.icon7
+    position absolute
+    left 290px;
+    top 310px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M0 40 L0 144');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+
+.icon8
+    position absolute
+    left 310px;
+    top 310px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M0 144 L0 40');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+
+//<line id="line-9" x1="350" y1="340" x2="420" y2="460"
+//style="stroke:rgb(255,0,0);stroke-width:2"/>
+//
+//<line id="line-10" x1="370" y1="340" x2="440" y2="460"
+//style="stroke:rgb(255,0,0);stroke-width:2"/>
+
+.icon9
+    position absolute
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M350 340 L420 460');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
+
+
+.icon10
+    position absolute
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/flower.png")
+    background-repeat: no-repeat
+    offset-path: path('M440 460 L370 340');
+    offset-distance: 0%;
+    animation: run-line 4s linear infinite;
 
 .active
     animation-play-state: running;

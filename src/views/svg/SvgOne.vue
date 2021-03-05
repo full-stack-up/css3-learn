@@ -34,11 +34,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.home
+    position absolute
+    width 600px
+    height 400px
+    background-color greenyellow
 svg
-    width: 300px;
     display: block;
     position: absolute;
-    display: block;
 
 .ball
     position relative
