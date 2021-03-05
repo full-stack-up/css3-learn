@@ -6,7 +6,7 @@
                   class="path"></path>
         </svg>
 
-        <div src="../../image/shortharigirl.png" class="ball" @mouseenter="over()" @mouseleave="leave()"
+        <div class="ball" @mouseenter="over()" @mouseleave="leave()"
              ref="ball"></div>
     </div>
 </template>
@@ -48,7 +48,7 @@ svg
     background-repeat: no-repeat
     offset-path: path('M10 80 Q 77.5 10, 145 80 T 280 80');
     offset-distance: 0%;
-    animation: run-line 2s linear infinite;
+    animation: run-line 4s linear infinite;
 
 
 @keyframes run-line

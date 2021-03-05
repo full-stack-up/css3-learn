@@ -78,6 +78,11 @@
             </text>
         </svg>
 
+        <svg class="column-line" width="600px" height="600px" version="1.1">
+            <line x1="0" y1="0" x2="600" y2="500"
+                  style="stroke:rgb(255,0,0);stroke-width:2"/>
+        </svg>
+
 
     </div>
 </template>
