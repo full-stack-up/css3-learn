@@ -11,7 +11,7 @@
     <div class="right-bottom"></div>
     <svg class="column-line" width="600px" height="600px" version="1.1">
       <line id="line-1" x1="140" y1="140" x2="140" y2="240"
-            style="stroke:rgb(255,0,0);stroke-width:2" @mouseenter="over()" @mouseleave="leave()"/>
+            style="stroke:rgb(255,0,0);stroke-width:2" @mouseenter="over($event)" @mouseleave="leave()"/>
 
       <line id="line-2" x1="160" y1="140" x2="160" y2="240"
             style="stroke:rgb(255,0,0);stroke-width:2"/>
@@ -44,7 +44,7 @@
             style="stroke:rgb(255,0,0);stroke-width:2"/>
     </svg>
     <div ref="icon1" class="icon1" @mouseenter="over()" @mouseleave="leave()"></div>
-    <div ref="icon2" class="icon2" @mouseenter="over()" @mouseleave="leave()"></div>
+    <div ref="icon2" class="icon2" @mouseenter="over($event)" @mouseleave="leave()"></div>
     <div ref="icon3" class="icon3" @mouseenter="over()" @mouseleave="leave()"></div>
     <div ref="icon4" class="icon4" @mouseenter="over()" @mouseleave="leave()"></div>
     <div ref="icon5" class="icon5" @mouseenter="over()" @mouseleave="leave()"></div>
@@ -99,36 +99,38 @@ export default {
     return {}
   },
   methods: {
-    over() {
-      const icon1 = this.$refs.icon1
-      icon1.className = 'icon1 paused';
-
-      const icon2 = this.$refs.icon2
-      icon2.className = 'icon2 paused';
-
-      const icon3 = this.$refs.icon3
-      icon3.className = 'icon3 paused';
-
-      const icon4 = this.$refs.icon4
-      icon4.className = 'icon4 paused';
-
-      const icon5 = this.$refs.icon5
-      icon5.className = 'icon5 paused';
-
-      const icon6 = this.$refs.icon6
-      icon6.className = 'icon6 paused';
-
-      const icon7 = this.$refs.icon7
-      icon7.className = 'icon7 paused';
-
-      const icon8 = this.$refs.icon8
-      icon8.className = 'icon8 paused';
-
-      const icon9 = this.$refs.icon9
-      icon9.className = 'icon9 paused';
-
-      const icon10 = this.$refs.icon10
-      icon10.className = 'icon10 paused';
+    over(event) {
+        this.$refs.icon1.style.animationPlayState = "paused"
+        console.log(event.target)
+      // const icon1 = this.$refs.icon1
+      // icon1.className = 'icon1 paused';
+      //
+      // const icon2 = this.$refs.icon2
+      // icon2.className = 'icon2 paused';
+      //
+      // const icon3 = this.$refs.icon3
+      // icon3.className = 'icon3 paused';
+      //
+      // const icon4 = this.$refs.icon4
+      // icon4.className = 'icon4 paused';
+      //
+      // const icon5 = this.$refs.icon5
+      // icon5.className = 'icon5 paused';
+      //
+      // const icon6 = this.$refs.icon6
+      // icon6.className = 'icon6 paused';
+      //
+      // const icon7 = this.$refs.icon7
+      // icon7.className = 'icon7 paused';
+      //
+      // const icon8 = this.$refs.icon8
+      // icon8.className = 'icon8 paused';
+      //
+      // const icon9 = this.$refs.icon9
+      // icon9.className = 'icon9 paused';
+      //
+      // const icon10 = this.$refs.icon10
+      // icon10.className = 'icon10 paused';
 
     },
     leave() {
@@ -183,38 +185,38 @@ export default {
     listening() {
       //从底下往中间移动
       this.$refs.icon6.addEventListener('animationend', () => {
-        console.log('icon6 finished animating!');
+        // console.log('icon6 finished animating!');
         this.$refs.icon6.style.display = 'none'
         this.$eventHub.$emit("bottom-to-center");
       });
       this.$refs.icon8.addEventListener('animationend', () => {
-        console.log('icon8 finished animating!');
+        // console.log('icon8 finished animating!');
         this.$refs.icon8.style.display = 'none'
       });
       this.$refs.icon10.addEventListener('animationend', () => {
-        console.log('icon10 finished animating!');
+        // console.log('icon10 finished animating!');
         this.$refs.icon10.style.display = 'none'
       });
 
       //从中间往顶部移动
       this.$refs.icon2.addEventListener('animationend', () => {
         this.$eventHub.$emit("center-to-top");
-        console.log('icon2 finished animating!');
+        // console.log('icon2 finished animating!');
         this.$refs.icon2.style.display = 'none'
       });
       this.$refs.icon4.addEventListener('animationend', () => {
-        console.log('icon4 finished animating!');
+        // console.log('icon4 finished animating!');
         this.$refs.icon4.style.display = 'none'
       });
 
       //从顶部往中间移动
       this.$refs.icon1.addEventListener('animationend', () => {
         this.$eventHub.$emit("center-to-bottom");
-        console.log('icon1 finished animating!');
+        // console.log('icon1 finished animating!');
         this.$refs.icon1.style.display = 'none'
       });
       this.$refs.icon3.addEventListener('animationend', () => {
-        console.log('icon3 finished animating!');
+        // console.log('icon3 finished animating!');
         this.$refs.icon3.style.display = 'none'
       });
 
@@ -222,16 +224,16 @@ export default {
       //从中间往底部移动
       this.$refs.icon5.addEventListener('animationend', () => {
         this.$eventHub.$emit("start");
-        console.log('icon5 finished animating!');
+        // console.log('icon5 finished animating!');
         this.$refs.icon5.style.display = 'none'
       });
       this.$refs.icon7.addEventListener('animationend', () => {
-        console.log('icon7 finished animating!');
+        // console.log('icon7 finished animating!');
         this.$refs.icon7.style.display = 'none'
       });
 
       this.$refs.icon9.addEventListener('animationend', () => {
-        console.log('icon9 finished animating!');
+        // console.log('icon9 finished animating!');
         this.$refs.icon9.style.display = 'none'
       });
     }
