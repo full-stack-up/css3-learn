@@ -43,16 +43,16 @@
             <line id="line-10" x1="370" y1="340" x2="440" y2="460"
                   style="stroke:rgb(255,0,0);stroke-width:2"/>
         </svg>
-        <div ref="icon1" class="icon1" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon2" class="icon2" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon3" class="icon3" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon4" class="icon4" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon5" class="icon5" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon6" class="icon6" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon7" class="icon7" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon8" class="icon8" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon9" class="icon9" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon10" class="icon10" @mouseenter="over()" @mouseleave="leave()"></div>
+        <div ref="icon1" class="icon1" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon2" class="icon2" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon3" class="icon3" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon4" class="icon4" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon5" class="icon5" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon6" class="icon6" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon7" class="icon7" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon8" class="icon8" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon9" class="icon9" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
+        <div ref="icon10" class="icon10" @mouseenter="over($event)" @mouseleave="leave($event)"></div>
 
     </div>
 </template>
@@ -96,10 +96,12 @@ export default {
     },
     methods: {
         over(event) {
-
+            let targetNode = event.target;
+            targetNode.style.animationPlayState = 'paused'
         },
-        leave() {
-
+        leave(event) {
+            let targetNode = event.target;
+            targetNode.style.animationPlayState = 'running'
         },
         start() {
             this.$refs.icon6.style.display = "block"
