@@ -44,9 +44,8 @@
                   style="stroke:rgb(255,0,0);stroke-width:2"/>
         </svg>
         <div ref="icon1" class="icon1" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon2" class="icon2" @mouseenter="over($event)" @mouseleave="leave()"></div>
+        <div ref="icon2" class="icon2" @mouseenter="over()" @mouseleave="leave()"></div>
         <div ref="icon3" class="icon3" @mouseenter="over()" @mouseleave="leave()"></div>
-        <div ref="icon3to1" class="icon3-1" @mouseenter="over()" @mouseleave="leave()"></div>
         <div ref="icon4" class="icon4" @mouseenter="over()" @mouseleave="leave()"></div>
         <div ref="icon5" class="icon5" @mouseenter="over()" @mouseleave="leave()"></div>
         <div ref="icon6" class="icon6" @mouseenter="over()" @mouseleave="leave()"></div>
@@ -64,19 +63,9 @@ export default {
     name: 'FlowChart',
     components: {},
     mounted() {
-
         this.start();
         this.listening();
-
         this.$eventHub.$on('start', this.start);
-        this.$eventHub.$on('bottom-to-center', () => {
-            this.$refs.icon2.style.display = "block"
-            this.$refs.icon2.style.animationPlayState = "running"
-
-            this.$refs.icon4.style.display = "block"
-            this.$refs.icon4.style.animationPlayState = "running"
-        });
-
         this.$eventHub.$on('center-to-top', () => {
             this.$refs.icon1.style.display = "block"
             this.$refs.icon1.style.animationPlayState = "running"
@@ -84,7 +73,13 @@ export default {
             this.$refs.icon3.style.display = "block"
             this.$refs.icon3.style.animationPlayState = "running"
         });
+        this.$eventHub.$on('top-to-center', () => {
+            this.$refs.icon2.style.display = "block"
+            this.$refs.icon2.style.animationPlayState = "running"
 
+            this.$refs.icon4.style.display = "block"
+            this.$refs.icon4.style.animationPlayState = "running"
+        });
         this.$eventHub.$on('center-to-bottom', () => {
             this.$refs.icon5.style.display = "block"
             this.$refs.icon5.style.animationPlayState = "running"
@@ -101,76 +96,9 @@ export default {
     },
     methods: {
         over(event) {
-            this.$refs.icon1.style.animationPlayState = "paused"
-            console.log(event.target)
-            // const icon1 = this.$refs.icon1
-            // icon1.className = 'icon1 paused';
-            //
-            // const icon2 = this.$refs.icon2
-            // icon2.className = 'icon2 paused';
-            //
-            // const icon3 = this.$refs.icon3
-            // icon3.className = 'icon3 paused';
-            //
-            // const icon4 = this.$refs.icon4
-            // icon4.className = 'icon4 paused';
-            //
-            // const icon5 = this.$refs.icon5
-            // icon5.className = 'icon5 paused';
-            //
-            // const icon6 = this.$refs.icon6
-            // icon6.className = 'icon6 paused';
-            //
-            // const icon7 = this.$refs.icon7
-            // icon7.className = 'icon7 paused';
-            //
-            // const icon8 = this.$refs.icon8
-            // icon8.className = 'icon8 paused';
-            //
-            // const icon9 = this.$refs.icon9
-            // icon9.className = 'icon9 paused';
-            //
-            // const icon10 = this.$refs.icon10
-            // icon10.className = 'icon10 paused';
 
         },
         leave() {
-            const icon1 = this.$refs.icon1
-            icon1.className = 'icon1 active';
-
-            const icon2 = this.$refs.icon2
-            icon2.className = 'icon2 active';
-
-            const icon3 = this.$refs.icon3
-            icon3.className = 'icon3 active';
-
-
-            const icon4 = this.$refs.icon4
-            icon4.className = 'icon4 active';
-
-
-            const icon5 = this.$refs.icon5
-            icon5.className = 'icon5 active';
-
-
-            const icon6 = this.$refs.icon6
-            icon6.className = 'icon6 active';
-
-
-            const icon7 = this.$refs.icon7
-            icon7.className = 'icon7 active';
-
-
-            const icon8 = this.$refs.icon8
-            icon8.className = 'icon8 active';
-
-
-            const icon9 = this.$refs.icon9
-            icon9.className = 'icon9 active';
-
-
-            const icon10 = this.$refs.icon10
-            icon10.className = 'icon10 active';
 
         },
         start() {
@@ -184,11 +112,17 @@ export default {
             this.$refs.icon10.style.animationPlayState = "running"
         },
         listening() {
-            //从底下往中间移动
+            this.bottomToCenter();
+            this.centerToTop();
+            this.topToCenter();
+            this.centerToBottom();
+        },
+        bottomToCenter() {
+            //图标从底下往中间移动
             this.$refs.icon6.addEventListener('animationend', () => {
                 // console.log('icon6 finished animating!');
                 this.$refs.icon6.style.display = 'none'
-                this.$eventHub.$emit("bottom-to-center");
+                this.$eventHub.$emit("center-to-top");
             });
             this.$refs.icon8.addEventListener('animationend', () => {
                 // console.log('icon8 finished animating!');
@@ -199,20 +133,11 @@ export default {
                 this.$refs.icon10.style.display = 'none'
             });
 
-            //从中间往顶部移动
-            this.$refs.icon2.addEventListener('animationend', () => {
-                this.$eventHub.$emit("center-to-top");
-                // console.log('icon2 finished animating!');
-                this.$refs.icon2.style.display = 'none'
-            });
-            this.$refs.icon4.addEventListener('animationend', () => {
-                // console.log('icon4 finished animating!');
-                this.$refs.icon4.style.display = 'none'
-            });
-
-            //从顶部往中间移动
+        },
+        centerToTop() {
+            //图标从中间往顶部移动
             this.$refs.icon1.addEventListener('animationend', () => {
-                this.$eventHub.$emit("center-to-bottom");
+                this.$eventHub.$emit("top-to-center");
                 // console.log('icon1 finished animating!');
                 this.$refs.icon1.style.display = 'none'
             });
@@ -220,14 +145,21 @@ export default {
                 // console.log('icon3 finished animating!');
                 this.$refs.icon3.style.display = 'none'
             });
-
-            this.$refs.icon3.addEventListener('animationend', () => {
-                // console.log('icon3 finished animating!');
-                this.$refs.icon3.style.display = 'none'
+        },
+        topToCenter() {
+            //图标从顶部往中间移动
+            this.$refs.icon2.addEventListener('animationend', () => {
+                this.$eventHub.$emit("center-to-bottom");
+                // console.log('icon2 finished animating!');
+                this.$refs.icon2.style.display = 'none'
             });
-
-
-            //从中间往底部移动
+            this.$refs.icon4.addEventListener('animationend', () => {
+                // console.log('icon4 finished animating!');
+                this.$refs.icon4.style.display = 'none'
+            });
+        },
+        centerToBottom() {
+            //图标从中间往底部移动
             this.$refs.icon5.addEventListener('animationend', () => {
                 this.$eventHub.$emit("start");
                 // console.log('icon5 finished animating!');
@@ -243,7 +175,6 @@ export default {
                 this.$refs.icon9.style.display = 'none'
             });
         }
-
     }
 }
 </script>
@@ -324,20 +255,6 @@ export default {
 .icon1
     display none
     position absolute
-    left 160px;
-    top 110px;
-    width: 24px;
-    height: 24px;
-    background-image: url("../../image/qiqiu.png")
-    background-repeat: no-repeat
-    offset-path: path('M0 40 L0 123');
-
-    offset-distance: 0%;
-    animation: run-line 4s linear 1 paused;
-
-.icon2
-    display none
-    position absolute
     left 140px
     top 110px
     width: 24px;
@@ -348,7 +265,35 @@ export default {
     offset-distance: 0%;
     animation: run-line 4s linear 1 paused;
 
+.icon2
+    display none
+    position absolute
+    left 160px;
+    top 110px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/qiqiu.png")
+    background-repeat: no-repeat
+    offset-path: path('M0 40 L0 123');
+    offset-distance: 0%;
+    animation: run-line 4s linear 1 paused;
+
+
 .icon3
+    display none
+    position absolute
+    right 135px;
+    top 110px;
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/quanquan.png")
+    background-repeat: no-repeat
+    offset-path: path('M0 122 L0 40');
+    offset-distance: 0%;
+    animation: run-line 4s linear 1 paused;
+
+
+.icon4
     display none
     position absolute
     right 115px;
@@ -374,18 +319,6 @@ export default {
     offset-distance: 0%;
     animation: run-line 4s linear 1 paused;
 
-.icon4
-    display none
-    position absolute
-    right 135px;
-    top 110px;
-    width: 24px;
-    height: 24px;
-    background-image: url("../../image/quanquan.png")
-    background-repeat: no-repeat
-    offset-path: path('M0 122 L0 40');
-    offset-distance: 0%;
-    animation: run-line 4s linear 1 paused;
 
 .icon5
     display none
