@@ -330,7 +330,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M0 122 L0 40');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 .icon2
   display none
@@ -343,7 +343,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M0 40 L0 123');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 
 .icon3
@@ -357,7 +357,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M0 122 L0 40');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 
 .icon4
@@ -371,7 +371,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M0 40 L0 123');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 .icon3-1
   display none
@@ -384,7 +384,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M0 40 L0 123');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 
 .icon5
@@ -396,7 +396,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M240 340 L140 460');
   offset-distance: 0%;
-  animation: run-line 4s linear paused;
+  animation: run-line 5s linear paused;
 
 
 .icon6
@@ -408,7 +408,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M160 460 L260 340');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 
 .icon7
@@ -422,7 +422,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M0 40 L0 144');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 .icon8
   display none
@@ -435,7 +435,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M0 144 L0 30');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 .icon9
   display none
@@ -446,7 +446,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M350 340 L420 460');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 
 .icon10
@@ -458,7 +458,7 @@ export default {
   background-repeat: no-repeat
   offset-path: path('M440 460 L370 340');
   offset-distance: 0%;
-  animation: run-line 4s linear 1 paused;
+  animation: run-line 5s linear 1 paused;
 
 .active
   animation-play-state: running;
